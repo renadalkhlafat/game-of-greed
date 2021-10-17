@@ -42,7 +42,21 @@ Scores={
 }
 class GameLogic:
     """
-    
+    Name:
+    GameLogic
+
+    Description:
+    A class used to handle the logic of the Game of Greed Game
+
+    Methods:
+
+    calculate_score(static method):
+    Input:  tuple of integers that represent a dice roll
+    Output: integer representing the roll’s score according to rules of the game 
+
+    roll_dice(static method): 
+    Input:  Integer ( between 1 and 6)
+    Output: tuple with random values between 1 and 6
     """
     
     def __init__(self):
