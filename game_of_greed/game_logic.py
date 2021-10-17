@@ -48,7 +48,7 @@ class GameLogic:
     def __init__(self):
         pass
     @staticmethod
-    def roll_dice(self,dice_num):
+    def roll_dice(dice_num=6):
         return tuple(random.randint(1,6) for _ in range(0,dice_num))
 
     @staticmethod
