@@ -35,4 +35,5 @@ Then run `Python game_logic.py`
 - Game of Greed -virsion 1 "feat: game logic & banker " 17-10-2021 
 
 ## PR 
-[PR](https://github.com/renadalkhlafat/game-of-greed/pull/1)
+[Version One PR](https://github.com/renadalkhlafat/game-of-greed/pull/1)
+[Version Two PR](https://github.com/renadalkhlafat/game-of-greed/pull/2)
