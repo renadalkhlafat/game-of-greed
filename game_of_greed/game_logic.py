@@ -57,6 +57,14 @@ class GameLogic:
     roll_dice(static method): 
     Input:  Integer ( between 1 and 6)
     Output: tuple with random values between 1 and 6
+
+    get_scorers(static method): 
+    Input:  Tuple
+    Output: Tuple with recorded scores 
+
+    validate_keepers(static method): 
+    Input:  Tuple
+    Output: Boolean if the user entered selected points to keep which it has to be a part of the original numbers
     """
     
     def __init__(self,dice_num=6):
@@ -83,12 +91,41 @@ class GameLogic:
                     score +=0
         return score 
 
+    @staticmethod
+    def get_scorers(_input):
+        
 
+        keep_points_tuple = [int(i) for i in _input]
+        all_dices_score = GameLogic.calculate_score(keep_points_tuple)
+        if all_dices_score == 0:
+            return ()
+        else:
+            list_of_scorers = []
+            _input = list(_input)
+            for i in range(len(_input)):
+                roll = _input[:i] + _input[i + 1 :]
+                score = GameLogic.calculate_score(roll)
 
-print(GameLogic.calculate_score((4,3,2,2,5,6)))
-print(GameLogic.calculate_score((3,3,2,2,6,6)))
-print(GameLogic.calculate_score((4,3,2,1,5,6)))
-print(GameLogic.calculate_score((4,4,4,1,1,1)))
-print(GameLogic.calculate_score((1, 1, 1, 2, 2, 2)))
+                if score != all_dices_score:
+                    list_of_scorers.append(_input[i])
+            
+            return tuple(list_of_scorers)
+
+    @staticmethod
+    def validate_keepers(roll,keepers):
+        _rolled_dice = list(roll)
+
+        _input = [int(i) for i in keepers]
+
+        if len(_input)>len(_rolled_dice):
+            return False
+        
+        for i in _input:
+            if i in _rolled_dice:
+                _rolled_dice.remove(i)
+            else:
+                return False
+        return True
+
 
 
