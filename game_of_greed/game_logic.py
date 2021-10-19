@@ -59,8 +59,8 @@ class GameLogic:
     Output: tuple with random values between 1 and 6
     """
     
-    def __init__(self):
-        pass
+    def __init__(self,dice_num=6):
+        self.dice_num=dice_num
     @staticmethod
     def roll_dice(dice_num=6):
         return tuple(random.randint(1,6) for _ in range(0,dice_num))
@@ -69,17 +69,14 @@ class GameLogic:
     def calculate_score(dice):
         score = 0
         dices=Counter(dice)
-        print(dices)
         x = list(dices)
         x.sort()
-        # print(x)
         if x  == [1,2,3,4,5,6]:
             score +=Scores["Straight"]
         elif list(dices.values()) == [2, 2, 2]:
             score +=Scores["Three Pairs"]
         else:
             for i in dices.items():
-                print(i)
                 try:
                     score +=Scores[i]
                 except:

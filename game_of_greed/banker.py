@@ -26,6 +26,7 @@ class Banker :
 
     def shelf(self ,points:int):
         self.shelved += points
+        return self.shelved
 
 
     def clear_shelf(self):
